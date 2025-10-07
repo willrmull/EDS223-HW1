@@ -7,10 +7,10 @@ Geospatial analysis of EJScreen data done for week one of the course EDS-223.
 ## Contents
 <table>
     <tr>
-      <td width="25%">
+      <td width="20%">
         Data Files
       </td>
-      <td width="75%">
+      <td width="80%">
         data <br>
           ├──  &nbsp;&nbsp;ejscreen: Folder containing gdb file used in analysis<br>
           ├──  &nbsp;&nbsp;ejscreen-tech-doc-version-2-2.pdf: Technical documentation<br>
@@ -18,19 +18,19 @@ Geospatial analysis of EJScreen data done for week one of the course EDS-223.
       </td>
      </tr>
     </tr>
-        <td width="25%">
+        <td width="20%">
         Analysis Script
       </td>
-      <td width="75%">
+      <td width="80%">
         The analysis script is titled ejscreen.qmd
       </td>
     </tr>
     </tr>
-        <td width="25%">
+        <td width="20%">
         Outputs
       </td>
-      <td width="50%">
-        ejscreen.pdf contains the render of the ejscreen.qmd is ejscreen.pdf
+      <td width="80%">
+        ejscreen.pdf contains the render of ejscreen.qmd
       </td>
     </tr>
   </table>
