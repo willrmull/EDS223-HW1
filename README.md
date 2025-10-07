@@ -11,10 +11,10 @@ Geospatial analysis of EJScreen data done for week one of the course EDS-223.
         data
       </td>
       <td width="50%">
-        Contents:
-          ejscreen: Folder containing gbd file used in analysis
-          ejscreen-tech-doc-version-2-2.pdf: Technical documentation
-          EJSCREEN_2023_BG_Columns.xlsx: Column descriptions
+        Contents:\
+          ejscreen: Folder containing gbd file used in analysis\
+          ejscreen-tech-doc-version-2-2.pdf: Technical documentation\
+          EJSCREEN_2023_BG_Columns.xlsx: Column descriptions\
       </td>
      </tr>
     </tr>
