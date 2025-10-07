@@ -8,13 +8,13 @@ Geospatial analysis of EJScreen data done for week one of the course EDS-223.
 <table>
     <tr>
       <td width="25%">
-        data
+        Data Files
       </td>
       <td width="75%">
-        Contents:<br>
-            &nbsp;&nbsp;ejscreen: Folder containing gdb file used in analysis<br>
-            &nbsp;&nbsp;ejscreen-tech-doc-version-2-2.pdf: Technical documentation<br>
-            &nbsp;&nbsp;EJSCREEN_2023_BG_Columns.xlsx: Column descriptions
+        Data:<br>
+          |  &nbsp;&nbsp;ejscreen: Folder containing gdb file used in analysis<br>
+          |  &nbsp;&nbsp;ejscreen-tech-doc-version-2-2.pdf: Technical documentation<br>
+          |  &nbsp;&nbsp;EJSCREEN_2023_BG_Columns.xlsx: Column descriptions
       </td>
      </tr>
     </tr>
