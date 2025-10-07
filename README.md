@@ -1,12 +1,6 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
+# Environmental Injustice in the Kansas City Metro
 
-# Analyzing Environmental Injustice in Kansas City
-
-Geospatial analysis of EJScreen done for week one of the course EDS-223.
+Geospatial analysis of EJScreen data done for week one of the course EDS-223.
 
 ## Repository Structure
 
