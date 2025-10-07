@@ -1,0 +1,143 @@
+---
+title: Homework Assignment 1 EDS 223
+format: 
+  html:
+    theme: Flatly   
+editor: visual
+---
+
+---
+title: Homework Assignment 1 EDS 223
+date: 10-06-2025
+---
+
+### Reading in Packages and Dataset
+
+------------------------------------------------------------------------
+
+```{r}
+# Importing Required Packages
+library(tidyverse)
+library(sf)
+library(tmap)
+library(here)
+```
+
+```{r}
+# Read in geodatabase of EJScreen data at the Census Block Group level
+ejscreen <- sf::st_read(here::here("data", "ejscreen","EJSCREEN_2023_BG_StatePct_with_AS_CNMI_GU_VI.gdb")) 
+```
+
+### Data Preparation
+
+------------------------------------------------------------------------
+
+```{r}
+# Read in Kansas and Missouri data sets
+# Due to overlapping county names this must be done seperatly
+kansas <- ejscreen %>%
+  dplyr::filter(ST_ABBREV == c('KS')) 
+missouri <- ejscreen %>%
+  dplyr::filter(ST_ABBREV == c('MO')) 
+
+# Read in counties located in the Kansas City Metropolitan Area
+county_map_kansas <- kansas %>%
+      filter(CNTY_NAME %in% c("Johnson County", 
+                              "Wyandotte County", 
+                              "Leavenworth County"))
+county_map_missouri <- missouri %>%
+      filter(CNTY_NAME %in% c("Jackson County", 
+                              "Platte County", 
+                              "Clay County", 
+                              "Cass County"))
+
+# Merge the two data sets together by binding rows
+kcmo_counties <- bind_rows(county_map_kansas, county_map_missouri)
+
+# Specify the area the map will display 
+custom_bbox <- c(xmin = -94.83, ymin = 38.875, xmax = -94.35, ymax = 39.25)
+```
+
+### Figure 1. The Prevalence of Low Income Households and the Release of Airborne Toxins
+
+------------------------------------------------------------------------
+
+```{r, warning=FALSE}
+# Bivariate plot of airborne toxin release and percent of households in low income
+tm_shape(kcmo_counties, bbox = custom_bbox) +
+   tm_graticules(x = c(-94.80, -94.70, -94.60, -94.50, -94.40, -94.30), 
+                 crs = 4326,
+                 labels.show = TRUE) + # Show coordinates on x and y of map
+   tm_polygons(fill = tm_vars(c("RSEI_AIR", "LOWINCPCT"), multivariate = TRUE),
+    fill.scale = tm_scale_bivariate(
+      values = "brewer.seqseq2",
+      scale1 = tm_scale_intervals(
+               breaks = c(5, 25, 100, 500, 2000, 10000, 50000, 250000, 1250000),
+                labels = c("(5", "25", "100", "500", "2,000", 
+                           "10,000", "50,000", "250,000", "1,250,000")),
+              scale2 = tm_scale_intervals(
+                breaks = c(0, 0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.7, 0.8, 0.9, 1), 
+                labels = c("0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"))),
+            # Format the legend and give titles
+            fill.legend = tm_legend_bivariate(
+              orientation = "landscape",
+              xlab = "Percent Low Income (10%)", 
+              ylab = "Toxic Releases to Air µg/m (m\u00B3)",
+              xlab.size=2.3,
+              ylab.size=2.3,
+              item.height = 1.5,
+              item.width = 1.5,
+              reverse = FALSE
+            )
+    ) +
+   tm_layout(main.title = "Airborn Toxin Release and % Low Income \n in the Kansas City Metropolitan Area",
+            main.title.fontface = "bold", 
+            main.title.position = "center",
+            legend.title.fontfamily = "monospace",
+            legend.text.size = 2)
+```
+
+### Figure 2. The Prevalence of People of Color and the Release of Airborne Toxins
+
+------------------------------------------------------------------------
+
+```{r, warning=FALSE}
+# Bivariate plot of the percent of people of color and the release of airborn3 toxins
+tm_shape(kcmo_counties, bbox = custom_bbox) +
+   tm_graticules(x = c(-94.80, -94.70, -94.60, -94.50, -94.40, -94.30),
+                 crs = 4326,
+                 labels.show = TRUE) + 
+   tm_polygons(fill = tm_vars(c("RSEI_AIR", "PEOPCOLORPCT"), multivariate = TRUE),
+    fill.scale = tm_scale_bivariate(
+      values = "brewer.seqseq2",
+      scale1 = tm_scale_intervals(
+                breaks = c(5, 25, 100, 500, 2000, 10000, 50000, 250000, 1250000),
+                labels = c("(5", "25", "100", "500", "2,000", 
+                           "10,000", "50,000", "250,000", "1,250,000")),
+              scale2 = tm_scale_intervals(
+                breaks = c(0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.7, 0.8, 0.9, 1), 
+                labels = c("10", "20", "30", "40", "50", "60", "70", "80", "90", "100")
+              )
+            ),
+            # Format the legend and give titles
+            fill.legend = tm_legend_bivariate(
+              orientation = "landscape",
+              xlab = "Percent People of Color (10%)", 
+              ylab = "Toxic Releases to Air", 
+              xlab.size=2.3,
+              ylab.size=2.3,
+              item.height = 1.5,
+              item.width = 1.5,
+              reverse = FALSE)) +
+   tm_layout(main.title = "Release of Airborn Toxins and % People of Color \n in the Kansas City Metropolitan Area",
+            main.title.fontface = "bold", 
+            main.title.position = "center",
+            legend.title.fontfamily = "monospace",
+            legend.text.size = 2)
+```
+
+## Discussion
+
+------------------------------------------------------------------------
+
+These maps reveal that communities in the Kansas City area with higher percentages of people of color and/or low-income residents are constantly located in the same areas with the highest levels of airborne toxic releases. The overlap is prominent, with nearly every block with a high proportion of either group being the darkest-shaded zones on the map, with a notable lack of blue colored areas. Interestingly, both maps also show the state line between Kansas and Missouri despite not being explicitly drawn in. This indicates that communities on the Missouri side may be more exposed to harmful airborne chemicals than those in Kansas.
