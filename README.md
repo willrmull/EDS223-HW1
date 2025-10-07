@@ -39,7 +39,7 @@ Geospatial analysis of EJScreen data done for week one of the course EDS-223.
 ***
 Download data from [here](https://drive.google.com/file/d/1nG6Nj1bXfzQFOVMO8Km3eNy4SWu1YcIQ/view?usp=sharing).
 
-##References
+## References
 ***
 U.S. Environmental Protection Agency (EPA), 2024. EJScreen Technical Documentation.
 
