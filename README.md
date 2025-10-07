@@ -7,10 +7,10 @@ Geospatial analysis of EJScreen data done for week one of the course EDS-223.
 ## Contents
 <table>
     <tr>
-      <td width="50%">
+      <td width="25%">
         data
       </td>
-      <td width="50%">
+      <td width="75%">
         Contents:<br>
             &nbsp;&nbsp;ejscreen: Folder containing gdb file used in analysis<br>
             &nbsp;&nbsp;ejscreen-tech-doc-version-2-2.pdf: Technical documentation<br>
@@ -18,27 +18,19 @@ Geospatial analysis of EJScreen data done for week one of the course EDS-223.
       </td>
      </tr>
     </tr>
-        <td width="50%">
+        <td width="25%">
         Analysis Script
       </td>
-      <td width="50%">
-        The analysis script is titled "paper.qmd" and can be found in the folder titled "paper"
+      <td width="75%">
+        The analysis script is titled "ejscreen.qmd" and can be found in the folder titled "paper"
       </td>
     </tr>
     </tr>
-        <td width="50%">
-        Supporting Code
-      </td>
-      <td width="50%">
-        The functions as well as the script used to read in data are located in the "R" folder
-      </td>
-    </tr>
-    </tr>
-        <td width="50%">
+        <td width="25%">
         Outputs
       </td>
       <td width="50%">
-        The figure of the five graphs is output into the "figs" folder located in "outputs"
+        ejscreen.pdf contains the render of the ejscreen.qmd is ejscreen.pdf
       </td>
     </tr>
   </table>
@@ -46,5 +38,9 @@ Geospatial analysis of EJScreen data done for week one of the course EDS-223.
 ## Data Access
 ***
 Download data from [here](https://drive.google.com/file/d/1nG6Nj1bXfzQFOVMO8Km3eNy4SWu1YcIQ/view?usp=sharing).
+
+##References
+***
+U.S. Environmental Protection Agency (EPA), 2024. EJScreen Technical Documentation.
 
 
