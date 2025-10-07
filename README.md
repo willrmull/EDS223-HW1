@@ -11,7 +11,7 @@ Geospatial analysis of EJScreen data done for week one of the course EDS-223.
         Data Files
       </td>
       <td width="75%">
-        data:<br>
+        data <br>
           ├──  &nbsp;&nbsp;ejscreen: Folder containing gdb file used in analysis<br>
           ├──  &nbsp;&nbsp;ejscreen-tech-doc-version-2-2.pdf: Technical documentation<br>
           ├── &nbsp;&nbsp;EJSCREEN_2023_BG_Columns.xlsx: Column descriptions
@@ -22,7 +22,7 @@ Geospatial analysis of EJScreen data done for week one of the course EDS-223.
         Analysis Script
       </td>
       <td width="75%">
-        The analysis script is titled "ejscreen.qmd" and can be found in the folder titled "paper"
+        The analysis script is titled ejscreen.qmd
       </td>
     </tr>
     </tr>
