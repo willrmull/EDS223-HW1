@@ -1,13 +1,14 @@
 ---
 title: Homework Assignment 1 EDS 223
 format: 
-  html:
+  pdf:
     theme: Flatly   
 editor: visual
 ---
 
 ---
-title: Homework Assignment 1 EDS 223
+title: Environmental Injustice in the Kansas City Metropolitan Area
+author: William Mullins
 date: 10-06-2025
 ---
 
@@ -15,7 +16,7 @@ date: 10-06-2025
 
 ------------------------------------------------------------------------
 
-```{r}
+```{r, message=FALSE}
 # Importing Required Packages
 library(tidyverse)
 library(sf)
@@ -23,7 +24,7 @@ library(tmap)
 library(here)
 ```
 
-```{r}
+```{r, echo=TRUE, results='hide'}
 # Read in geodatabase of EJScreen data at the Census Block Group level
 ejscreen <- sf::st_read(here::here("data", "ejscreen","EJSCREEN_2023_BG_StatePct_with_AS_CNMI_GU_VI.gdb")) 
 ```
@@ -62,7 +63,7 @@ custom_bbox <- c(xmin = -94.83, ymin = 38.875, xmax = -94.35, ymax = 39.25)
 
 ------------------------------------------------------------------------
 
-```{r, warning=FALSE}
+```{r, message=FALSE, warning=FALSE}
 # Bivariate plot of airborne toxin release and percent of households in low income
 tm_shape(kcmo_counties, bbox = custom_bbox) +
    tm_graticules(x = c(-94.80, -94.70, -94.60, -94.50, -94.40, -94.30), 
@@ -101,7 +102,7 @@ tm_shape(kcmo_counties, bbox = custom_bbox) +
 
 ------------------------------------------------------------------------
 
-```{r, warning=FALSE}
+```{r, message=FALSE, warning=FALSE}
 # Bivariate plot of the percent of people of color and the release of airborn3 toxins
 tm_shape(kcmo_counties, bbox = custom_bbox) +
    tm_graticules(x = c(-94.80, -94.70, -94.60, -94.50, -94.40, -94.30),
