@@ -4,6 +4,7 @@ Author: William Mullins [willrmull](https://github.com/willrmull) | [Personal We
 Inequality has been a longstanding issue within the Kansas City area, with the effects of redlining still dividing the city along racial lines. The goal of this project was to examine the affects this segregation has had on environmental justice within the metro.
 ***
 ### Repository Structure
+```
 +-----------------+-------------------------------------------------------------------+
 | Data Files      | data \                                                            |
 |                 | ├──   ejscreen: Folder containing gdb file used in analysis\      |
@@ -14,6 +15,7 @@ Inequality has been a longstanding issue within the Kansas City area, with the e
 +-----------------+-------------------------------------------------------------------+
 | Outputs         | ejscreen.pdf contains the render of ejscreen.qmd                  |
 +-----------------+-------------------------------------------------------------------+
+```
 ***
 ### Data Access and Information
 ***
